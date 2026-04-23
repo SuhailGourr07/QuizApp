@@ -72,12 +72,10 @@ body{
 
 @media only screen and (max-width:480px){
     body{
-        justify-content: center;
-       align-items: flex-start;
        padding: 15px;
     }
     .container{
-         height: 40vh;
+         height: 100%;
          width: 100%;
     }
 }
