@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #073737;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            height: 300px;
+            width: 20%;
+            background-color: #fdffd4;
+            border: none;
+            border-radius: 10px;
+            color: #073737;
+            padding: 25px;
+            box-shadow: 0 0 10px #fdffd4;
+        }
+
+        [type="email"],
+        [type="password"] {
+            height: 35px;
+            width: 100%;
+            padding-left: 10px;
+            margin: 10px 0;
+            /* border: none; */
+            outline: none;
+            /* border-bottom: 2px solid #073737; */
+            background-color: #fdffd4;
+            border-radius: 5px;
+        }
+
+        [type="submit"] {
+            /* padding: 12px 25px; */
+            height: 35px;
+            width: 100%;
+            font-size: 1.2em;
+            background-color: #073737;
+            color: #fdffd4;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 40px auto 0;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form name="frm" id="myform">
+            <label>Email:</label>
+            <input type="email" name="e" placeholder="Enter your Email">
+            <span id="a"></span>
+            <div class="pass-area">
+                <label>Password:</label>
+                <input type="password" name="p" placeholder="Enter Password">
+                <span id="b"></span>
+            </div>
+
+            <!-- <button type="button">Login</button> -->
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        let myform = document.getElementById("myform")
+        myform.addEventListener("submit", (e) => {
+            e.preventDefault();
+            fun1();
+        })
+
+        function fun1() {
+            let ptrn = /^[a-z A-Z 0-9]+[@]+[a-z]+[.]+[a-z]+$/;
+            if (document.frm.e.value === "") {
+                document.querySelector("#a").innerHTML = "This field is empty"
+            }
+            else {
+                if (ptrn.test(document.frm.e.value)) {
+                    alert("Valid")
+                }
+                else {
+                    alert("Invalid")
+                }
+            }
+
+
+            let ptrn2 = /^[0-9 a-z]+$/;
+           if(document.frm.p.value === ""){
+            document.getElementById("b").innerHTML = "This field is required";
+           }
+
+           else{
+             if (!ptrn.test(document.frm.p.value)) {
+                document.getElementById("b").innerHTML = "pattern not match";
+            }
+
+           }
+        }
+
+    </script>
+</body>
+
+</html>
